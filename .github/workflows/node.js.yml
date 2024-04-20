@@ -1,0 +1,37 @@
+name: CI
+
+on:
+ # События, которые запускает
+push:
+  branches: [ “main” ]
+pull_request:
+  branches: [ "main ]
+
+# jobs запускается параллельно, если не указана последовательность
+jobs:
+  # название job вы можете назвать как угодно
+my_bulld_job:
+   # Onepauwowan система в виртуальной машинt, в которой запускаются процессы
+runs-on: ubuntu-latest
+steps:
+    # Actions от github: проверяет репозиторий, гит м т.д.
+    - uses: actions/checkout@v3
+
+    # Устанавливзем ace необходимые зависимости и запускаем тесты node
+    - name: прb install, test and build
+   run: |
+npt install
+npt run build
+
+    # Пример однолинейного простого скрипта shell
+    - name: Run a one-line script
+    run: echo Hello, world!
+
+    # Пример иноголинейного скрипта shell
+- name: Run 2 multi-line script
+run: |
+echo Add other actions to build,
+echo test, any deploy your project
+
+- name: Run JS file for test
+run: node js/script.js
